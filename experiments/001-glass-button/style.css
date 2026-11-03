@@ -1,0 +1,55 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #0d0d12;
+  overflow: hidden;
+}
+
+.backdrop-orb {
+  position: fixed;
+  width: 40vmax;
+  height: 40vmax;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.orb-a {
+  background: #7c6cff;
+  top: -10vmax;
+  left: -10vmax;
+}
+
+.orb-b {
+  background: #ff6c9d;
+  bottom: -15vmax;
+  right: -10vmax;
+}
+
+.glass-btn {
+  font: 600 1.1rem/1 ui-monospace, Menlo, monospace;
+  letter-spacing: 0.05em;
+  color: #fff;
+  padding: 1.1rem 2.8rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.glass-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 8px 32px rgba(124, 108, 255, 0.35),
+    inset 0 0 18px rgba(255, 255, 255, 0.08);
+}
+
+.glass-btn:active {
+  transform: translateY(0) scale(0.97);
+}

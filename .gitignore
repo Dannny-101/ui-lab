@@ -1,0 +1,29 @@
+# Dependencies (any depth)
+node_modules/
+vendor/
+venv/
+.venv/
+__pycache__/
+
+# Builds
+dist/
+build/
+out/
+target/
+.build/
+*.tsbuildinfo
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs / coverage
+*.log
+coverage/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
