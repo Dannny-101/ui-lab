@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>003 — Junction router</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="stage">
+    <div class="readout">
+      <span class="readout-label">Route</span>
+      <span id="route-name">—</span>
+    </div>
+
+    <svg id="scene" viewBox="0 0 720 380" role="img" aria-label="Railway junction router">
+      <g id="ghosts"></g>
+
+      <path id="live" class="live-track" d="" fill="none" />
+      <circle id="pulse" class="pulse" r="4" opacity="0" />
+
+      <g class="junction">
+        <circle class="j-ring" cx="260" cy="190" r="14" />
+        <line id="lever" class="j-lever" x1="260" y1="190" x2="260" y2="178" />
+      </g>
+
+      <g class="node source">
+        <circle cx="70" cy="190" r="26" />
+        <text x="70" y="195">acct</text>
+      </g>
+
+      <g id="ports"></g>
+    </svg>
+
+    <p class="hint">click a port · ↑ ↓ keys</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
