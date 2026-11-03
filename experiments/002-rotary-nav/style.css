@@ -1,0 +1,147 @@
+:root {
+  --bg: #0d0d12;
+  --surface: #16161d;
+  --border: #2a2a35;
+  --text: #e8e8ef;
+  --muted: #8b8b98;
+  --accent: #7c6cff;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(600px 600px at 70% 20%, rgba(124, 108, 255, 0.12), transparent),
+    var(--bg);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  user-select: none;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.readout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.readout-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+#selected-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  min-height: 1.2em;
+}
+
+.dial {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow:
+    inset 0 0 60px rgba(0, 0, 0, 0.5),
+    0 20px 60px rgba(0, 0, 0, 0.4);
+  touch-action: none;
+  cursor: grab;
+}
+
+.dial.dragging { cursor: grabbing; }
+
+.marker {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 14px solid var(--accent);
+  filter: drop-shadow(0 0 8px rgba(124, 108, 255, 0.8));
+  z-index: 3;
+}
+
+.wheel {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.anim .item,
+.anim .item .chip {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+.item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 88px;
+  margin: -19px 0 0 -44px;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.item .chip {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #1c1c25;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.item.active .chip {
+  color: #fff;
+  border-color: var(--accent);
+  background: rgba(124, 108, 255, 0.18);
+  box-shadow: 0 0 18px rgba(124, 108, 255, 0.45);
+  transform: scale(1.12);
+}
+
+.hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #23232e, #14141b);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  color: var(--accent);
+  z-index: 2;
+  box-shadow: 0 0 0 6px rgba(124, 108, 255, 0.06);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
